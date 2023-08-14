@@ -1,3 +1,19 @@
+<?php 
+include 'koneksi.php';
+
+$data = mysqli_query($koneksi, "select * from tabel_tamu");
+$d = mysqli_fetch_assoc($data);
+
+function komentar() {
+    if($d['komentar'] == 0) {
+        return false;
+    }
+    else {
+        $d['komentar'];
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +36,7 @@
             <td>Komentar</td>
             <td>Tanggal</td>
             <td>Aksi</td>
+            <td>Komentar</td>
         </tr>
 
         <?php 
@@ -34,6 +51,7 @@
             <td><?php echo $d['komentar']; ?></td>
             <td><?php echo $d['tanggal'] ?></td>
             <td><a href="respon.php?id=$d[0]">Respon</a></td>
+            <td></td>
         </tr>
         <?php 
         }
